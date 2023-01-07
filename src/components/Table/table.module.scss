@@ -1,0 +1,69 @@
+$types: (
+  id: 50px,
+  name: 200px,
+  value: 120px,
+  valueA: 100px,
+  many: 100px,
+  profit: 100px,
+  operation: 100px,
+);
+
+.svg {
+  background: red;
+}
+
+.table {
+  display: grid;
+
+  width: fit-content;
+  max-width: 90vw;
+
+  margin: auto;
+
+  &__row {
+    display: grid;
+    place-items: stretch;
+    gap: 1px;
+
+    &:not(.table__row_header):hover {
+      .table__column {
+        background: rgba(0, 0, 0, 0.035);
+
+        border-radius: 5%;
+      }
+    }
+
+    &_header {
+      .table__column {
+        position: relative;
+
+        background: rgba(0, 0, 0, 0.05);
+
+        border-radius: 5%;
+      }
+    }
+  }
+
+  &__column {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 100px;
+
+    padding: 10px;
+
+    transition: background 0.1s ease-in-out;
+
+    &_type {
+      @each $type, $width in $types {
+        &_#{$type} {
+          width: $width;
+        }
+      }
+    }
+  }
+}

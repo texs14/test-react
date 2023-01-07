@@ -1,12 +1,14 @@
-import CounterStore from './CounterStore'
-import ChangeColorStore from './ChengeColorStore'
+import TableStore from './TableStore'
+import UserStore from './UserStore'
+import { makeAutoObservable } from 'mobx'
 
 export default class Store {
-  counter: CounterStore
-  color: ChangeColorStore
+  tablesStore: TableStore
+  user: UserStore
 
   constructor() {
-    this.counter = new CounterStore(this)
-    this.color = new ChangeColorStore(this)
+    makeAutoObservable(this)
+    this.tablesStore = new TableStore(this)
+    this.user = new UserStore(this)
   }
 }

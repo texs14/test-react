@@ -1,0 +1,67 @@
+import { useEffect, useState } from 'react'
+import SortIconCSS from './sortIcon.module.scss'
+import { useContext } from 'react'
+import { Context } from '../../index'
+import { ISort, sort } from '../../models/Table/ITable'
+import { observer } from 'mobx-react-lite'
+import { toJS } from 'mobx'
+
+function SortIcon(props: { sort: ISort; type: string }): JSX.Element {
+  const { sort, type } = props
+  // const [sortBy, setSortBy] = useState<sort>('def')
+  // const [sortClass, setSortClass] = useState<string>('')
+  const { sortIcon, sortIcon_byDec, sortIcon_byInc, line } = SortIconCSS
+
+  const {
+    store: { tablesStore }
+  } = useContext(Context)
+  let sortClass: string
+  if (sort.sortBy === 'def') {
+    sortClass = ''
+  } else if (sort.sortBy === 'dec') {
+    sortClass = sortIcon_byDec
+  } else {
+    sortClass = sortIcon_byInc
+  }
+
+  // const changeSort = () => {
+  //   if (sortBy === 'def') {
+  //     setSortBy('dec')
+  //   } else if (sortBy === 'dec') {
+  //     setSortBy('inc')
+  //   } else {
+  //     setSortBy('def')
+  //   }
+  // }
+  //
+  // useEffect(() => {
+  //   if (sortBy === 'def') {
+  //     setSortClass('')
+  //   } else if (sortBy === 'dec') {
+  //     setSortClass(sortIcon_byDec)
+  //   } else {
+  //     setSortClass(sortIcon_byInc)
+  //   }
+  //   tablesStore.sort(tablesStore.table.rows, sortBy, type)
+  // }, [sortBy])
+
+  useEffect(() => {
+    console.log('check')
+  }, [])
+
+  return (
+    <div
+      className={`${sortIcon} ${sortClass}`}
+      onClick={() => {
+        tablesStore.changeSortClass(sort, type)
+        tablesStore.sort(sort, type)
+      }}
+    >
+      <span className={line}></span>
+      <span className={line}></span>
+      <span className={line}></span>
+    </div>
+  )
+}
+
+export default observer(SortIcon)

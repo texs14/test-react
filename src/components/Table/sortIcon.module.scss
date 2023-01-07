@@ -1,0 +1,39 @@
+.sortIcon {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  min-width: 18px;
+  height: 12px;
+
+  cursor: pointer;
+
+  .line {
+    width: 12px;
+    height: 1.5px;
+
+    background: #000;
+
+    transition: all 0.25s ease-in-out;
+  }
+
+  &_byInc {
+    .line {
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          width: calc(5px * #{$i});
+        }
+      }
+    }
+  }
+
+  &_byDec {
+    .line {
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          width: calc(15px -  #{$i} * 5px + 5px);
+        }
+      }
+    }
+  }
+}
