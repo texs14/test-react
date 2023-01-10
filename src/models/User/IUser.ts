@@ -1,4 +1,9 @@
 export interface IUser {
-  // name: string
-  // any
+  id: number
+  name: string
+  value: number
+  valueA: number
+  many: number
+  profit: number
+  operation: string
 }

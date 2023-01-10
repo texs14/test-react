@@ -24,31 +24,6 @@ function SortIcon(props: { sort: ISort; type: string }): JSX.Element {
     sortClass = sortIcon_byInc
   }
 
-  // const changeSort = () => {
-  //   if (sortBy === 'def') {
-  //     setSortBy('dec')
-  //   } else if (sortBy === 'dec') {
-  //     setSortBy('inc')
-  //   } else {
-  //     setSortBy('def')
-  //   }
-  // }
-  //
-  // useEffect(() => {
-  //   if (sortBy === 'def') {
-  //     setSortClass('')
-  //   } else if (sortBy === 'dec') {
-  //     setSortClass(sortIcon_byDec)
-  //   } else {
-  //     setSortClass(sortIcon_byInc)
-  //   }
-  //   tablesStore.sort(tablesStore.table.rows, sortBy, type)
-  // }, [sortBy])
-
-  useEffect(() => {
-    console.log('check')
-  }, [])
-
   return (
     <div
       className={`${sortIcon} ${sortClass}`}

@@ -1,42 +1,59 @@
 import './App.css'
 import { observer } from 'mobx-react-lite'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+  useLocation
+} from 'react-router-dom'
 import User from './components/User'
 import React, { useContext, useEffect, useState } from 'react'
-import TablesPage from './pages/TablesPage'
+import TablesPage from './pages/TablesPage/TablesPage'
 import { Context } from './index'
 
-function App() {
-  const [loader, setLoader] = useState<boolean>(true)
+const App: React.FunctionComponent = () => {
+  const [loader, setLoader] = useState<boolean>(false)
   const {
     store: { tablesStore }
   } = useContext(Context)
 
-  useEffect(() => {
-    ;(async () => {
-      try {
-        await tablesStore.fetchTable()
-      } catch (e) {
-        console.log(e)
-      } finally {
-        setLoader(false)
-      }
-    })()
-  }, [])
+  let location = useLocation()
+
+  // useEffect(() => {
+  //   ;(async () => {
+  //     try {
+  //       await tablesStore.fetchTable('contributors')
+  //     } catch (e) {
+  //       console.log(e)
+  //     } finally {
+  //       setLoader(false)
+  //     }
+  //   })()
+  // }, [])
 
   if (loader) {
     return <span>Loader </span>
   }
 
   return (
-    <BrowserRouter>
+    <main className='main'>
       <Routes>
-        <Route path='/' element={<TablesPage />} />
-        <Route path='user'>
-          <Route index path=':id' element={<User userData={'test'} />} />
+        <Route path='table' element={<TablesPage />}>
+          <Route path='contributors' element={<TablesPage />} />
+          <Route path='borrowers' element={<TablesPage />} />
         </Route>
+        <Route path='user'>
+          <Route index path=':id' element={<User />} />
+        </Route>
+        {/*<Route path='*' element={<Navigate to='table' replace />} />*/}
+        <Route
+          path='*'
+          element={<Navigate to='table/contributors' replace />}
+        />
       </Routes>
-    </BrowserRouter>
+    </main>
   )
 }
 

@@ -1,6 +1,7 @@
 import Store from './store'
 import { makeAutoObservable, toJS } from 'mobx'
-import { IRow } from '../models/Table/ITable'
+import { IColumn, IRow } from '../models/Table/ITable'
+import { IUser } from '../models/User/IUser'
 
 class UserStore {
   rootState: Store
@@ -9,19 +10,22 @@ class UserStore {
     this.rootState = rootState
   }
 
-  getUser(id: number): any {
-    console.log('tyt', toJS(this.rootState))
+  getUser(id: number): IUser {
+    let userData: any = {}
     if (this.rootState.tablesStore.table.rows) {
-      const currentUser = this.rootState.tablesStore.table.rows.find((row) => {
-        return row.id === id
-      })
+      const currentUser = this.rootState.tablesStore.table.rows.find(
+        (row: IRow) => {
+          return row.id === id
+        }
+      )
 
       if (currentUser) {
-        currentUser.columns.forEach((column) => {
-          console.log('column', toJS(column))
+        currentUser.columns.forEach((column: IColumn) => {
+          userData[column.type] = column.value
         })
       }
     }
+    return userData
   }
 }
 

@@ -1,9 +1,14 @@
 import TableCSS from './table.module.scss'
 import Row from './Row'
-import { IColumn, ITable, IRow } from '../../models/Table/ITable'
+import { ITable, IRow } from '../../models/Table/ITable'
 import { observer } from 'mobx-react-lite'
 
-function Table(props: { table: ITable; sortRows: IRow[] }): JSX.Element {
+interface ITableProps {
+  table: ITable
+  sortRows: IRow[]
+}
+
+const Table: React.FunctionComponent<ITableProps> = (props) => {
   const { table, sortRows } = props
 
   return (

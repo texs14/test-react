@@ -1,4 +1,5 @@
 export type sort = 'def' | 'dec' | 'inc'
+export type tableType = 'contributors' | 'borrowers'
 
 export interface ISort {
   isSort: boolean

@@ -1,5 +1,7 @@
+import TableService from '../services/TableService'
+
 import { makeAutoObservable } from 'mobx'
-import { ITable, IRow, sort, IColumn, ISort } from '../models/Table/ITable'
+import { ITable, IRow, tableType, IColumn, ISort } from '../models/Table/ITable'
 import Store from './store'
 import { toJS } from 'mobx'
 
@@ -21,131 +23,8 @@ class TableStore {
     return this.sortedRows
   }
 
-  async fetchTable() {
-    const promise: Promise<ITable> = new Promise((resolve, reject) => {
-      try {
-        setTimeout(() => {
-          resolve({
-            header: {
-              id: 0,
-              columns: [
-                {
-                  value: 'Id',
-                  type: 'id',
-                  sort: {
-                    sortBy: 'def',
-                    isSort: false
-                  }
-                },
-                {
-                  value: 'ФИО',
-                  type: 'name',
-                  sort: {
-                    sortBy: 'def',
-                    isSort: false
-                  }
-                },
-                {
-                  value: 'Сумма вложений',
-                  type: 'value',
-                  sort: {
-                    sortBy: 'def',
-                    isSort: false
-                  }
-                },
-                {
-                  value: 'Количество акций',
-                  type: 'valueA',
-                  sort: {
-                    sortBy: 'def',
-                    isSort: false
-                  }
-                },
-                {
-                  value: 'Текущий денежный эквивалент',
-                  type: 'many',
-                  sort: {
-                    sortBy: 'def',
-                    isSort: false
-                  }
-                },
-                {
-                  value: 'Прибыль',
-                  type: 'profit',
-                  sort: {
-                    sortBy: 'def',
-                    isSort: false
-                  }
-                },
-                {
-                  value: 'Операции на Счёте вкладчика',
-                  type: 'operation'
-                }
-              ]
-            },
-            rows: [
-              {
-                id: 11,
-                columns: [
-                  { value: '1', type: 'id' },
-                  { value: 'БАИванов Иван Иванович', type: 'name' },
-                  { value: '100003', type: 'value' },
-                  { value: '1002', type: 'valueA' },
-                  { value: '100001', type: 'many' },
-                  { value: '1', type: 'profit' },
-                  { value: '???', type: 'operation' }
-                ]
-              },
-              {
-                id: 22,
-                columns: [
-                  { value: '2', type: 'id' },
-                  { value: 'АИванов Иван Иванович', type: 'name' },
-                  { value: '100002', type: 'value' },
-                  { value: '1002', type: 'valueA' },
-                  { value: '100002', type: 'many' },
-                  { value: '2', type: 'profit' },
-                  { value: '???', type: 'operation' }
-                ]
-              },
-              {
-                id: 33,
-                columns: [
-                  { value: '4', type: 'id' },
-                  { value: 'ГИванов Иван Иванович', type: 'name' },
-                  { value: '100004', type: 'value' },
-                  { value: '1004', type: 'valueA' },
-                  { value: '100004', type: 'many' },
-                  { value: '4', type: 'profit' },
-                  { value: '???', type: 'operation' }
-                ]
-              },
-              {
-                id: 44,
-                columns: [
-                  { value: '3', type: 'id' },
-                  { value: 'ВИванов ИванИванИван Иванович', type: 'name' },
-                  { value: '100003', type: 'value' },
-                  { value: '1003', type: 'valueA' },
-                  { value: '100003', type: 'many' },
-                  { value: '3', type: 'profit' },
-                  { value: '???', type: 'operation' }
-                ]
-              }
-            ]
-          })
-        }, 1000)
-      } catch (e) {
-        reject(e)
-      }
-    })
-    await promise
-      .then((data) => {
-        this.table = data
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+  async fetchTable(tableType: tableType) {
+    this.table = await TableService.fetchTable(tableType)
     this.sortedRows = this.table.rows
   }
 
