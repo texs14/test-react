@@ -31,7 +31,7 @@ const User: React.FunctionComponent = () => {
     if (typeof userData.name === 'string') {
       setUser(userData)
     } else {
-      navigate('/')
+      navigate('/table/contributors')
     }
     console.log('userData', userData)
   }, [])

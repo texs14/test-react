@@ -1,5 +1,5 @@
 import TableCSS from './table.module.scss'
-import SortIcon from './SortIcon'
+import SortIcon from './SortIcon/SortIcon'
 import { IColumn } from '../../models/Table/ITable'
 import React from 'react'
 import { Link } from 'react-router-dom'

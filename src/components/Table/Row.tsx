@@ -1,6 +1,6 @@
 import Column from './Column'
 import TableCSS from './table.module.scss'
-import { IColumn, IRow } from '../../models/Table/ITable'
+import { IColumn, IRow } from 'models/Table/ITable'
 import React from 'react'
 
 interface IRowProps {

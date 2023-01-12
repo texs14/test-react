@@ -12,10 +12,12 @@
     "@types/react-dom": "^18.0.9",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.2.1",
+    "firebase": "^9.15.0",
     "mobx": "^6.7.0",
     "mobx-react-lite": "^3.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-paginate": "^8.1.4",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "sass": "^1.57.1",
@@ -56,5 +58,11 @@
   },
   "devDependencies": {
     "prettier": "2.8.1"
-  }
+  },
+  "compilerOptions": {
+    "baseUrl": "./src"
+  },
+  "include": [
+    "src"
+  ]
 }

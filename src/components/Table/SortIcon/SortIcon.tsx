@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import SortIconCSS from './sortIcon.module.scss'
 import { useContext } from 'react'
-import { Context } from '../../index'
-import { ISort, sort } from '../../models/Table/ITable'
+import { Context } from '../../../index'
+import { ISort, sort } from '../../../models/Table/ITable'
 import { observer } from 'mobx-react-lite'
 import { toJS } from 'mobx'
 

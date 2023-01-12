@@ -1,7 +1,7 @@
 import Store from './store'
 import { makeAutoObservable, toJS } from 'mobx'
-import { IColumn, IRow } from '../models/Table/ITable'
-import { IUser } from '../models/User/IUser'
+import { IColumn, IRow } from 'models/Table/ITable'
+import { IUser } from 'models/User/IUser'
 
 class UserStore {
   rootState: Store

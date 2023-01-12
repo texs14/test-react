@@ -1,4 +1,4 @@
-import { ITable, tableType } from '../models/Table/ITable'
+import { ITable, tableType } from 'models/Table/ITable'
 
 class TableService {
   private table: ITable
@@ -222,6 +222,90 @@ class TableService {
                 },
                 {
                   id: 44,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 45,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 46,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 47,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 48,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 49,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 40,
+                  columns: [
+                    { value: '3', type: 'id' },
+                    { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },
+                    { value: '100003', type: 'value' },
+                    { value: '1003', type: 'valueA' },
+                    { value: '100003', type: 'many' },
+                    { value: '3', type: 'profit' },
+                    { value: '???', type: 'operation' }
+                  ]
+                },
+                {
+                  id: 57,
                   columns: [
                     { value: '3', type: 'id' },
                     { value: 'ВЗаёмщик ИванИванИван Иванович', type: 'name' },

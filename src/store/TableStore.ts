@@ -1,7 +1,7 @@
-import TableService from '../services/TableService'
+import TableService from 'services/TableService'
 
 import { makeAutoObservable } from 'mobx'
-import { ITable, IRow, tableType, IColumn, ISort } from '../models/Table/ITable'
+import { ITable, IRow, tableType, IColumn, ISort } from 'models/Table/ITable'
 import Store from './store'
 import { toJS } from 'mobx'
 
