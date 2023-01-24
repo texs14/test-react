@@ -2,21 +2,20 @@ import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-import Store from './store/store'
+import Store, { store } from './store/store'
 import { RouterProvider } from 'react-router-dom'
 
 import router from './router/router'
+import { log } from 'util'
 
 interface State {
   store: Store
 }
 
-const store = new Store()
-
 export const Context = createContext<State>({
   store
 })
-
+console.log('store', store)
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>

@@ -1,5 +1,3 @@
-import TableService from 'services/TableService'
-
 import { makeAutoObservable } from 'mobx'
 import { ITable, IRow, tableType, IColumn, ISort } from 'models/Table/ITable'
 import Store from './store'
@@ -23,9 +21,9 @@ class TableStore {
     return this.sortedRows
   }
 
-  async fetchTable(tableType: tableType) {
-    this.table = await TableService.fetchTable(tableType)
-    this.sortedRows = this.table.rows
+  setTable(table: ITable) {
+    this.table = table
+    this.sortedRows = table.rows
   }
 
   cleanIsSort(columns: IColumn[]) {

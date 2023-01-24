@@ -11,10 +11,10 @@ const User: React.FunctionComponent = () => {
   const [user, setUser] = useState({} as any)
   const navigate = useNavigate()
   const { id } = useParams()
-  let userId: number = 0
+  let userId: string
 
   if (id) {
-    userId = +id
+    userId = id
   }
 
   const {
@@ -40,11 +40,9 @@ const User: React.FunctionComponent = () => {
     <div>
       <span onClick={() => navigate(-1)}>Вернуться назад</span>
       <h2>{user.name}</h2>
-      <span>Акций: {user.valueA}</span>
+      <span>Акций: {user.numberShares}</span>
       <span>Денег вложено: {user.many}</span>
-      <span>Денег доступно к выводу: {user.valueA}</span>
       <span>Профит: {user.profit}</span>
-      <span>Операции пользователя: {user.operation}</span>
     </div>
   )
 }

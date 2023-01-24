@@ -10,7 +10,7 @@ class UserStore {
     this.rootState = rootState
   }
 
-  getUser(id: number): IUser {
+  getUser(id: string): IUser {
     let userData: any = {}
     if (this.rootState.tablesStore.table.rows) {
       const currentUser = this.rootState.tablesStore.table.rows.find(

@@ -17,7 +17,7 @@ export interface IColumn {
 // }
 
 export interface IRow {
-  id: number
+  id: string
   columns: IColumn[]
 }
 

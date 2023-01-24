@@ -13,6 +13,7 @@ const Row: React.FunctionComponent<IRowProps> = (props) => {
     row: { columns, id: rowId },
     isHeader
   } = props
+
   const { table__row, table__row_header } = TableCSS
   const gridStyleBody = {
     gridTemplateColumns: `repeat(${columns.length}, auto)`

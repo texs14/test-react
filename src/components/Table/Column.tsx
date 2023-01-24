@@ -1,18 +1,19 @@
 import TableCSS from './table.module.scss'
 import SortIcon from './SortIcon/SortIcon'
-import { IColumn } from '../../models/Table/ITable'
+import { IColumn, ISort } from '../../models/Table/ITable'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 interface IColumnProps {
   column: IColumn
-  rowId: number
+  rowId: string
+  sort?: ISort
 }
 
 const Column: React.FunctionComponent<IColumnProps> = (props) => {
   const {
-    column: { value, type, sort },
-    rowId
+    rowId,
+    column: { type, value, sort }
   } = props
 
   const { table__column } = TableCSS
@@ -22,7 +23,7 @@ const Column: React.FunctionComponent<IColumnProps> = (props) => {
 
   return (
     <span className={correctClasses}>
-      {type === 'name' && rowId !== 0 ? (
+      {type === 'name' && rowId !== '0' ? (
         <Link to={`/user/${rowId}`}>{value}</Link>
       ) : (
         <span>{value}</span>
